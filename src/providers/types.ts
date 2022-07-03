@@ -6,14 +6,19 @@ export interface IGeolocation {
   lat: number;
 }
 
+export type TGeolocation = {
+  lng: number;
+  lat: number;
+};
+
 export type WeatherContextProps = {
   children: ReactNode;
 };
 
 export type WeatherContextType = {
-  weatherData: TWeatherData;
-  geoLocation: IGeolocation;
-  dateLastUpdate: Date;
+  weatherData: TWeatherData | null;
+  geoLocation: TGeolocation | null;
+  dateLastUpdate: Date | null;
   handleWeatherData: (data: TWeatherData) => void;
   handleGeoLocation: (data: IGeolocation) => void;
 };

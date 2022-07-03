@@ -7,9 +7,9 @@ export const WeatherContext = React.createContext<WeatherContextType | null>(
 );
 
 const WeatherProvider: React.FC<WeatherContextProps> = ({children}) => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [geoLocation, setGeoLocation] = useState(null);
-  const [dateLastUpdate, setDateLastUpdate] = useState(null);
+  const [weatherData, setWeatherData] = useState<TWeatherData | null>(null);
+  const [geoLocation, setGeoLocation] = useState<IGeolocation | null>(null);
+  const [dateLastUpdate, setDateLastUpdate] = useState<Date | null>(null);
 
   function handleWeatherData(data: TWeatherData) {
     setWeatherData(data);

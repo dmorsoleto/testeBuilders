@@ -1,26 +1,30 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SplashNavigatorStack} from '../features/Splash/navigation';
 import {HomeNavigatorStack} from '../features/Home/navigation';
-import routes from './routes';
+// import routes from './routes';
 
 const Stack = createStackNavigator();
 
 export default () => {
+  const navigationRef = useNavigationContainerRef();
+
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen
           options={{headerShown: false}}
-          name={routes.App.Splash.SplashScreen}
+          name={'App.SplashScreen'}
           component={SplashNavigatorStack}
         />
         <Stack.Screen
           options={{headerShown: false}}
-          name={routes.App.Home.HomeScreen}
+          name={'App.HomeScreen'}
           component={HomeNavigatorStack}
         />
       </Stack.Navigator>
