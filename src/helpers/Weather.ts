@@ -4,21 +4,22 @@ import {TWeatherData} from '../features/Splash/types';
 import {IGeolocation} from '../providers/types';
 class WeatherHelper {
   private geolocation: IGeolocation = null;
+  private apiKey = API_KEY_OPEN_WEATHER;
 
-  constructor(geolocationEntry: IGeolocation) {
+  constructor(geolocationEntry: IGeolocation, apiKeyEntry?: string) {
     this.geolocation = geolocationEntry;
+    if (apiKeyEntry) {
+      this.apiKey = apiKeyEntry;
+    }
   }
 
   async fetchWeatherData(): Promise<TWeatherData> {
     const geoLocation = this.geolocation;
-    console.log('API_KEY_OPEN_WEATHER', API_KEY_OPEN_WEATHER);
     const respWeatherData = await getWeatherData({
       lat: geoLocation.lat,
       lng: geoLocation.lng,
-      key: API_KEY_OPEN_WEATHER,
+      key: this.apiKey,
     });
-    console.log('respWeatherData', respWeatherData);
-    console.log(respWeatherData.data.weather.description);
 
     const dataWeather = respWeatherData.data;
     const objDataWeather = {
