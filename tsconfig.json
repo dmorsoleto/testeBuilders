@@ -7,6 +7,21 @@
         "src/*"
       ],
     },
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "jsx": "react-native",
+    "lib": [
+      "es2017"
+    ],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "baseUrl": ".",
+    "allowJs": true,
+    "checkJs": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
   }
 }
