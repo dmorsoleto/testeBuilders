@@ -5,7 +5,6 @@ import Geolocation from 'react-native-geolocation-service';
 import routes from '../../../../navigation/routes';
 import {WeatherContext} from '../../../../providers/WeatherProvider';
 import {SplashParamList} from '../../navigation';
-import {getWeatherData} from '../../services';
 import SplashScreenContainer from './ui';
 import {hasLocationPermission} from '../../../../config/Permissions';
 import {TPositionProps} from '../../types';
